@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="StylusTest.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:StylusTest"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="0" Padding="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <ListBox Name="BluetoothDevices"
+                 ItemsSource="{Binding Devices}"
+                 SelectedItem="{Binding SelectedDevice, Mode=TwoWay}"
+                 DisplayMemberPath="Name"
+                 Grid.Row="0" />
+        <StackPanel Grid.Row="1">
+            <CheckBox IsChecked="{Binding CopyToClipboard, Mode=TwoWay}">
+                <TextBlock Text="Copy scanned values to clipboard" />
+            </CheckBox>
+            <TextBlock Text="{Binding RawData}" />
+            <TextBlock Text="{Binding Message}" />
+        </StackPanel>
+        
+    </Grid>
+</Page>
